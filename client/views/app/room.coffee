@@ -8,8 +8,8 @@ Template.room.helpers
 
 	favorite: ->
 		sub = ChatSubscription.findOne { rid: this._id }, { fields: { f: 1 } }
-		return 'icon-star favorite-room' if sub?.f? and sub.f
-		return 'icon-star-empty'
+		return 'fa-star favorite-room' if sub?.f? and sub.f
+		return 'fa-star-o'
 
 	subscribed: ->
 		return ChatSubscription.find({ rid: this._id }).count() > 0
