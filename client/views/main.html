@@ -71,10 +71,13 @@
                                 </a>
                             </div>
                             <div class="collapse navbar-collapse">
+                              {{#with myUserInfo}}
                                <ul class="nav navbar-nav">
                                    <li>
+                                       <a href="" id="logout"><i class="icon-logout"></i><span>{{_ "Logout"}}</span></a>
                                    </li>
                                </ul>
+                               	{{/with}}
                                 <ul class="nav navbar-nav navbar-right">
                                   {{> social}}
                                 </ul>
