@@ -90,8 +90,8 @@ Template.main.helpers
 		if Match.test pJSDom, Array
 			for item in pJSDom
 				item?.pJS?.fn.vendors.destroypJS()
-                
-                
+
+
 	myUserInfo: ->
 		visualStatus = "online"
 		username = Meteor.user()?.username
@@ -112,7 +112,7 @@ Template.main.helpers
 
 Template.main.events
 
-    'click #logout': (event) ->
+	'click #logout': (event) ->
 		event.preventDefault()
 		user = Meteor.user()
 		Meteor.logout ->
