@@ -90,6 +90,7 @@ Template.main.helpers
 		if Match.test pJSDom, Array
 			for item in pJSDom
 				item?.pJS?.fn.vendors.destroypJS()
+                
 
 Template.main.events
 
