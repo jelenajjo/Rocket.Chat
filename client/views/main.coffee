@@ -91,7 +91,8 @@ Template.main.helpers
 			for item in pJSDom
 				item?.pJS?.fn.vendors.destroypJS()
                 
-    myUserInfo: ->
+                
+	myUserInfo: ->
 		visualStatus = "online"
 		username = Meteor.user()?.username
 		switch Session.get('user_' + username + '_status')
@@ -111,7 +112,7 @@ Template.main.helpers
 
 Template.main.events
 
-'click #logout': (event) ->
+    'click #logout': (event) ->
 		event.preventDefault()
 		user = Meteor.user()
 		Meteor.logout ->
