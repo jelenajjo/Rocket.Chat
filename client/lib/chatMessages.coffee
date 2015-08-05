@@ -2,6 +2,7 @@ class @ChatMessages
 	init: (node) ->
 		this.editing = {}
 
+		this.messageMaxSize = RocketChat.settings.get('Message_MaxAllowedSize')
 		this.wrapper = $(node).find(".wrapper")
 		this.input = $(node).find(".input-message").get(0)
 		this.bindEvents()
@@ -66,6 +67,8 @@ class @ChatMessages
 
 	send: (rid, input) ->
 		if _.trim(input.value) isnt ''
+			if this.isMessageTooLong(input)
+				return Errors.throw t('Error_message_too_long')
 			KonchatNotification.removeRoomNotification(rid)
 			msg = input.value
 			input.value = ''
@@ -110,6 +113,17 @@ class @ChatMessages
 				postGrowCallback: =>
 					this.resize()
 
+	tryCompletion: (input) ->
+		value = input.value.match(/[^\s]+$/)
+		if value?.length > 0
+			value = value[0]
+
+			re = new RegExp value, 'i'
+
+			user = Meteor.users.findOne username: re
+			if user?
+				input.value = input.value.replace value, "@#{user.username} "
+
 	keyup: (rid, event) ->
 		input = event.currentTarget
 		k = event.which
@@ -148,6 +162,12 @@ class @ChatMessages
 			else
 				this.send(rid, input)
 			return
+
+		if k is 9
+			event.preventDefault()
+			event.stopPropagation()
+			@tryCompletion input
+
 		if k is 27
 			if this.editing.id
 				event.preventDefault()
@@ -168,3 +188,6 @@ class @ChatMessages
 		# ctrl (command) + shift + k -> clear room messages
 		else if k is 75 and ((navigator?.platform?.indexOf('Mac') isnt -1 and event.metaKey and event.shiftKey) or (navigator?.platform?.indexOf('Mac') is -1 and event.ctrlKey and event.shiftKey))
 			RoomHistoryManager.clear rid
+
+	isMessageTooLong: (input) ->
+		input?.value.length > this.messageMaxSize
