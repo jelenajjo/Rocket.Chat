@@ -1,24 +1,28 @@
 <template name="room">
-	<div class="dropzone">
+	<div class="dropzone row">
 		<div class="dropzone-overlay">
 			<div>
 				Drop to upload file
 			</div>
 		</div>
-		<section class="messages-container" id="{{windowId}}">
+		<section class="messages-container col-md-10" id="{{windowId}}">
 			<header class="fixed-title">
 				{{> burger}}
 				<h2>
-					{{#if subscribed}}
-						<a href="#favorite" class="toggle-favorite"><i class="{{favorite}}"></i></a>
-					{{/if}}
-					<i class="{{roomIcon}} status-{{userStatus}}"></i>
-					<span class="room-title {{editingTitle}}">{{roomName}}</span>
+					<!--<i class="{{roomIcon}} status-{{userStatus}}"></i>-->
+					<span class="room-title {{editingTitle}} edit-room-title">{{roomName}}</span>
 					{{#if canEditName}}
 					<input type="text" id="room-title-field" class="{{showEditingTitle}}" value="{{roomNameEdit}}" dir="auto">
-					<a href="#edit" class="edit-room-title"><i class="icon-pencil"></i></a>
 					{{/if}}
 				</h2>
+
+				<ul class="nav navbar-nav roomOptions">
+                    {{#if subscribed}}
+				    <li>
+				        <a href="#favorite" class="toggle-favorite"><i class="{{favorite}} fa fa-star"></i></a>
+				    </li>
+				    {{/if}}
+				</ul>
 			</header>
 			<div class="messages-box">
 				<div class="wrapper">
@@ -26,10 +30,6 @@
 						{{#if hasMore}}
 							<li class="load-more">
 								<button class="button secondary load-more {{isLoading}}">{{_ "Load_more"}}</button>
-							</li>
-						{{else}}
-							<li class="start">
-								{{_ "Start_of_conversation"}}
 							</li>
 						{{/if}}
 						{{#each messagesHistory}}
@@ -229,5 +229,8 @@
 				{{> social}}
 			</footer>
 		</section>
+        <div class="sidebar-right col-md-2">
+            helloo
+        </div>
 	</div>
 </template>

@@ -94,7 +94,33 @@ Template.main.helpers
 			for item in pJSDom
 				item?.pJS?.fn.vendors.destroypJS()
 
+
+	myUserInfo: ->
+		visualStatus = "online"
+		username = Meteor.user()?.username
+		switch Session.get('user_' + username + '_status')
+			when "away"
+				visualStatus = t("away")
+			when "busy"
+				visualStatus = t("busy")
+			when "offline"
+				visualStatus = t("invisible")
+		return {
+			name: Session.get('user_' + username + '_name')
+			status: Session.get('user_' + username + '_status')
+			visualStatus: visualStatus
+			_id: Meteor.userId()
+			username: username
+		}
+
 Template.main.events
+
+	'click #logout': (event) ->
+		event.preventDefault()
+		user = Meteor.user()
+		Meteor.logout ->
+			FlowRouter.go 'home'
+			Meteor.call('logoutCleanUp', user)
 
 	"click .burger": ->
 		console.log 'room click .burger' if window.rocketDebug

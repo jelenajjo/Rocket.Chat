@@ -89,6 +89,8 @@ mongo-livedata@1.0.8
 mrt:reactive-store@0.0.1
 mystor:device-detection@0.2.0
 nimble:restivus@0.8.2
+natestrauser:font-awesome@4.3.0
+nimble:restivus@0.8.1
 nooitaf:colors@0.0.2
 npm-bcrypt@0.7.8_2
 oauth@1.1.4
@@ -137,6 +139,7 @@ tmeasday:crypto-md5@3.1.2
 tmeasday:errors@2.0.0
 todda00:friendly-slugs@0.3.3
 tracker@1.0.7
+twbs:bootstrap@3.3.5
 ui@1.0.6
 underscore@1.0.3
 underscorestring:underscore.string@3.1.1
