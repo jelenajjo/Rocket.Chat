@@ -94,7 +94,6 @@ Template.main.helpers
 			for item in pJSDom
 				item?.pJS?.fn.vendors.destroypJS()
 
-
 	myUserInfo: ->
 		visualStatus = "online"
 		username = Meteor.user()?.username

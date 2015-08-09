@@ -487,12 +487,12 @@ Template.room.events
 			closeOnConfirm: false
 			html: false
 		}, ->
-			swal 
+			swal
 				title: t('Deleted')
 				text: t('Your_entry_has_been_deleted')
 				type: 'success'
 				timer: 1000
-				showConfirmButton: false 
+				showConfirmButton: false
 
 			instance.chatMessages.deleteMsg(message)
 

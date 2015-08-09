@@ -71,16 +71,22 @@
                                 </a>
                             </div>
                             <div class="collapse navbar-collapse">
-                              {{#with myUserInfo}}
+
                                <ul class="nav navbar-nav">
-                                   <li>
-                                       <a href="" id="logout"><i class="icon-logout"></i><span>{{_ "Logout"}}</span></a>
-                                   </li>
+
                                </ul>
-                               	{{/with}}
+                               {{#with myUserInfo}}
                                 <ul class="nav navbar-nav navbar-right">
-                                  {{> social}}
+                                	{{#if username}}
+                                	<li class="status-{{status}}">
+                                		<h4>{{username}}</h4>
+                                	</li>
+                                	{{/if}}
+                                	<li>
+                                       <a href="" id="logout"><i class="icon-logout"></i></a>
+                                   </li>
                                 </ul>
+                                	{{/with}}
                             </div><!--.nav-collapse -->
                     </nav>
 					<div class="main-content {{flexOpened}} {{flexOpenedRTC1}} {{flexOpenedRTC2}}">

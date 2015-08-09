@@ -47,7 +47,7 @@
 					<form class="message-form" method="post" action="/">
 						<div>
 							{{> messagePopupConfig getPupupConfig}}
-							<textarea dir="auto" name="msg" maxlength="{{maxMessageLength}}" class="input-message" placeholder="{{_ 'Message'}}"></textarea>
+							<textarea dir="auto" name="msg" maxlength="{{maxMessageLength}}" class="input-message" placeholder="{{_ 'Type your message...'}}"></textarea>
 							<i class="icon-paper-plane" title="{{_ "Send_Message"}}"></i>
 						</div>
 						<div class="users-typing">
@@ -225,12 +225,6 @@
 					{{/if}}
 				</div>
 			{{/if}}
-			<footer>
-				{{> social}}
-			</footer>
 		</section>
-        <div class="sidebar-right col-md-2">
-            helloo
-        </div>
 	</div>
 </template>
