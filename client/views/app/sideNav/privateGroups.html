@@ -1,13 +1,12 @@
 <template name="privateGroups">
 	<h3 class="add-room {{isActive}}">
+		<i class="fa fa-lock h3Before"></i>
 		{{_ "Private_Groups"}}
 		<i class="a-plus"></i>
 	</h3>
 	<ul>
 		{{#each rooms}}
 			{{> chatRoomItem }}
-		{{else}}
-			<p class="empty">{{_ "No_groups_yet" }}</p>
 		{{/each}}
 	</ul>
 </template>
