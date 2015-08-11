@@ -8,14 +8,20 @@
 					{{> directMessages }}
 					{{> privateGroups }}
 					<h3>
-						<a href="{{pathFor 'privateHistory'}}">{{_ "History"}}</a>
+						<a href="{{pathFor 'privateHistory'}}"><i class="fa fa-history h3Before"></i>{{_ "History"}}</a>
 					</h3>
 					{{#if isAdmin}}
 					<h3 class="open-settings">
+						<i class="fa fa-cog h3Before"></i>
 						{{_ "App_Settings"}}
 					</h3>
 					{{/if}}
 				</div>
+			</div>
+			<div class="flex-nav hidden">
+				<section>
+					{{> UI.dynamic template=flexTemplate data=flexData}}
+				</section>
 			</div>
 		{{/if}}
 	</aside>

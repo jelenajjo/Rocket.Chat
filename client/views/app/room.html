@@ -9,11 +9,11 @@
 			<header class="fixed-title">
 				{{> burger}}
 				<h2>
-					<!--<i class="{{roomIcon}} status-{{userStatus}}"></i>-->
 					<span class="room-title {{editingTitle}} edit-room-title">{{roomName}}</span>
 					{{#if canEditName}}
 					<input type="text" id="room-title-field" class="{{showEditingTitle}}" value="{{roomNameEdit}}" dir="auto">
 					{{/if}}
+					<i class="icon-cancel-circled hide-room" title="{{_ "Hide_room"}}"></i>
 				</h2>
 
 				<ul class="nav navbar-nav roomOptions">

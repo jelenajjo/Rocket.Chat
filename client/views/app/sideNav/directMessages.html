@@ -1,13 +1,12 @@
 <template name="directMessages">
 	<h3 class="add-room {{isActive}}">
+		<i class="fa fa-envelope h3Before"></i>
 		{{_ "Direct_Messages"}}
 		<i class="a-plus"></i>
 	</h3>
 	<ul>
 		{{#each rooms}}
 			{{> chatRoomItem }}
-		{{else}}
-			<p class="empty">{{_ "No_direct_messages_yet" }}</p>
 		{{/each}}
 	</ul>
 </template>
