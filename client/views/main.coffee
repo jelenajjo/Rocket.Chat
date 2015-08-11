@@ -120,6 +120,17 @@ Template.main.helpers
 		}
 
 Template.main.events
+	'click .status': (event) ->
+		event.preventDefault()
+		AccountBox.setStatus(event.currentTarget.dataset.status)
+
+	'click #avatar': (event) ->
+		FlowRouter.go 'changeAvatar'
+
+	'click #settings': (event) ->
+		SideNav.setFlex "userSettingsFlex"
+		SideNav.openFlex()
+		FlowRouter.go 'userSettings'
 
 	'click #logout': (event) ->
 		event.preventDefault()
@@ -140,3 +151,6 @@ Template.main.onRendered ->
 	# RTL Support - Need config option on the UI
 	if isRtl localStorage.getItem "userLanguage"
 		$('html').addClass "rtl"
+
+Template.main.rendered = ->
+	AccountBox.init()

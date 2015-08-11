@@ -86,26 +86,6 @@
 			</footer>
 		</section>
 		<section class="flex-tab">
-			<div class="control">
-				<button class="more"><span class="arrow {{arrowPosition}}"></span></button>
-				{{#if canAddUser}}
-					<div class="search-form">
-						<div class="input-line search">
-							{{> inputAutocomplete settings=autocompleteSettingsAddUser id="user-add-search" class="search" placeholder=tAddUsers}}
-							<i class="icon-plus"></i>
-						</div>
-					</div>
-				{{else}}
-					{{#if isChannel}}
-						<form class="search-form" role="form">
-							<div class="input-line search">
-								{{> inputAutocomplete settings=autocompleteSettingsRoomSearch id="room-search" class="search" placeholder=tQuickSearch autocomplete="off"}}
-								<i class="icon-search"></i>
-							</div>
-						</form>
-					{{/if}}
-				{{/if}}
-			</div>
 			{{#if flexOpened}}
 				<div class="content">
 					{{#if isGroupChat}}
@@ -135,9 +115,22 @@
 								<div class="about clearfix">
 									<div class="thumb">
 										{{> avatar username=username}}
+										<div class="userInfo">
+											<div class="infoName">
+											<h3>{{username}}</h3>
+											<span>Front End Developer</span>
+										</div>
+										<div class="infoContact">
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+											</ul>
+										</div>
+
+										</div>
 									</div>
 									<div class="info">
-										<h3>{{username}}</h3>
+
 										{{#if contactCode}}
 											<div class="contact-code">{{_ "Contact"}} {{contactCode}}</div>
 										{{/if}}
@@ -225,6 +218,26 @@
 					{{/if}}
 				</div>
 			{{/if}}
+			<div class="control">
+				<button class="more"><span class="arrow {{arrowPosition}}"></span></button>
+				{{#if canAddUser}}
+					<div class="search-form">
+						<div class="input-line search">
+							{{> inputAutocomplete settings=autocompleteSettingsAddUser id="user-add-search" class="search" placeholder=tAddUsers}}
+							<i class="icon-plus"></i>
+						</div>
+					</div>
+				{{else}}
+					{{#if isChannel}}
+						<form class="search-form" role="form">
+							<div class="input-line search">
+								{{> inputAutocomplete settings=autocompleteSettingsRoomSearch id="room-search" class="search" placeholder=tQuickSearch autocomplete="off"}}
+								<i class="icon-search"></i>
+							</div>
+						</form>
+					{{/if}}
+				{{/if}}
+			</div>
 		</section>
 	</div>
 </template>

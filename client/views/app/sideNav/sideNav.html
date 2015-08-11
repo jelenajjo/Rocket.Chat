@@ -1,8 +1,5 @@
 <template name="sideNav">
 	<aside class="side-nav" role="navigation">
-		<header class="header">
-			{{> userStatus}}
-		</header>
 		{{#if currentUser}}
 			<div class="rooms-list">
 				<div class="wrapper">
@@ -20,12 +17,6 @@
 					{{/if}}
 				</div>
 			</div>
-			<div class="flex-nav hidden">
-				<section>
-					{{> UI.dynamic template=flexTemplate data=flexData}}
-				</section>
-			</div>
-			<span class="arrow bottom"></span>
 		{{/if}}
 	</aside>
 </template>

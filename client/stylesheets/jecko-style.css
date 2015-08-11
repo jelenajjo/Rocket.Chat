@@ -1,3 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+
+html, body{
+    font-family: 'Varela Round', sans-serif;
+}
 
 .navbar-inverse {
     background-color: #2B4049;
@@ -15,6 +20,22 @@
     margin-left: -75px;
 }
 
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 0px!important;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    right: 0px!important;
+    left: auto!important;
+    top: auto!important;
+    bottom: auto!important;
+    box-shadow: none!important;
+    width: auto!important;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #FFF;
+    background-color: transparent;
+}
 
 /* ROOM */
 
@@ -26,19 +47,38 @@
     background:#fff;
 }
 
+.main-content.flex-opened .flex-tab {
+    margin-top: 50px;
+}
+
+.flex-tab{
+    width: 18%;
+    background: #15252D;
+}
+.main-content.flex-opened {
+    right: 18%;
+}
+
 .side-nav{
     margin-top: 50px;
     padding: 0;
 }
 
 .side-nav, .side-nav .rooms-list {
-    background: #15252D;
+    background: #fff;
     box-shadow: none;
     height: 100%;
 }
 
+.avatar{
+    border-radius: 0;
+}
+
 .side-nav .rooms-list {
     direction: ltr;
+    top:0;
+    border:none;
+    box-shadow: none;
 }
 
 .navbar-inverse .navbar-nav > li{
@@ -108,6 +148,7 @@ li.own .thumb{
     left: auto !important;
     bottom: 0 !important;
     top: auto !important;
+    height: 200px;
 }
 
 
@@ -133,8 +174,14 @@ li.own .chatMsg{
     position: relative;
 }
 
-li.own .thumb .avatar, .thumb .avatar{
+
+li.own .thumb .avatar, .user-card-message .avatar{
     border-radius: 0;
+    height: 40px;
+}
+
+li.own .thumb .avatar .avatar-image .blurWrap, .user-card-message .avatar .avatar-image .blurWrap{
+    display: none;
 }
 
 li.own .thumb .avatar .avatar-image {
@@ -250,93 +297,144 @@ border-radius: 50%;
     background:#ECF0F1;
     border:none;
 }
-/*
 
-.row{
-    height: 100%;
+.messages-container .message-form > .users-typing {
+    background-color: transparent;
 }
 
-.sidebarLeft {
-    position: fixed;
-    top: 51px;
-    bottom: 0px;
-    left: 0px;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: #FAFBFC;
-    border-right: 1px solid #EEE;
+.chatMsg .body{
+    color:#49606A;
 }
 
-.sidebarRight {
-    position: fixed;
-    top: 51px;
-    bottom: 0px;
-    right: 0px;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transform: none;
-    background:#15252D;
-
+.messages-box .message .user {
+    color:#8499A1;
 }
 
-.mainCont{
-    position: fixed;
-    top: 51px;
-    bottom: 0px;
-    left:0;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: #ECF0F1;
+.user-view{
+    padding: 0;
 }
 
-.roomCont{
-    position: fixed;
-    top: 51px;
-    bottom: 0px;
-    left:16.6667%;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background: #ECF0F1;
+.user-view .thumb {
+    float: left;
+    width: 100%;
+height: 200px;
 }
 
+.user-view .thumb  .avatar .avatar-image {
+    border-radius:0;
+}
 
-.main-content {
-    position: relative;
-    margin-left: 0;
+.flex-tab .content {
     margin-top: 0;
+    position: relative;
+    height: calc(100% - 60px);
+}
+
+.flex-tab .control{
+    position: absolute;
+    bottom: 0;
+}
+
+.userInfo{
+    position: absolute;
+    height: 70px;
+    margin-top:-70px;
+    display: block;
+    width:100%;
+    overflow: hidden;
+}
+
+.blurImg{
+    filter: blur(6px);
+    display: block;
+background-color: transparent;
+background-size: cover;
+background-repeat: no-repeat;
+bottom: 0px;
+background-position: center bottom;
+height: 70px;
+}
+
+.blurWrap{
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 70px;
+}
+
+.infoName{
+    width:60%;
+    float: left;
     height: 100%;
-    width: auto;
-    transition: none;
+    padding-left: 8px;
+padding-top: 15px;
 }
 
-.dropzone{
+.infoName h3{
+    width:100%;
+    display: block;
+    color: #E2E8EA;
+    font-weight: bold;
+}
+
+.infoName span{
+    width:100%;
+    display: block;
+    color: #B1C0C5;
+    font-size: 0.8em;
+}
+
+.infoContact{
+    float: right;
     height: 100%;
-    height: 100%;
+    width:40%;
 }
 
 
 
-.fixed-title{
-    background: #ECF0F1;
+.infoContact ul{
+    margin-top:20px;
 }
 
-.fixed-title h2 {
-    color: #49606A;
-    font-size: 1.2em;
+.infoContact ul li{
+    float: left;
 }
 
-.lines .user-image a{
-color: #49606A;
-font-size: 1.2em;
-font-weight: 500;
-height: auto;
+.fa-facebook{
+    border: none;
+    background: rgb(40, 73, 142);
+    border-radius: 50% 2px 2px 50%;
+    color: #fff;
+    line-height: 2.3;
 }
-*/
+
+
+.fa-google-plus{
+    border: none;
+    background: rgb(196, 65, 48);
+    border-radius: 2px 50% 50% 2px;
+    color: #fff;
+    line-height: 2.3;
+}
+
+.side-nav ul a{
+    color: #556B75;
+    text-shadow: none;
+}
+
+.side-nav ul li.active a {
+    background-color:#E6F3F8;
+    color: #556B75;
+    text-shadow: none;
+}
+
+.rooms-list .wrapper h3{
+    color: #8EA2A9;
+    text-shadow: none;
+}
+
+.user-card-room a .avatar .avatar-image .blurWrap{
+    display: none;
+}
