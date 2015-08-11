@@ -70,6 +70,7 @@ pauli:accounts-linkedin
 percolate:migrations
 percolatestudio:synced-cron
 raix:handlebar-helpers
+raix:push
 raix:ui-dropped-event
 tap:i18n
 tmeasday:crypto-md5
