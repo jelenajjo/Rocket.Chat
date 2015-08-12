@@ -69,7 +69,12 @@ Template.body.onRendered ->
 Template.main.helpers
 
 	logged: ->
-		return Meteor.userId()?
+		if Meteor.userId()?
+			$('html').addClass("noscroll").removeClass("scroll")
+			return true
+		else
+			$('html').addClass("scroll").removeClass("noscroll")
+			return false
 
 	subsReady: ->
 		return not Meteor.userId()? or (FlowRouter.subsReady('userData', 'activeUsers'))
@@ -89,10 +94,6 @@ Template.main.helpers
 		console.log 'layout.helpers flexOpenedRTC2' if window.rocketDebug
 		return 'layout2' if (Session.get('rtcLayoutmode') > 1)
 
-	removeParticles: ->
-		if Match.test pJSDom, Array
-			for item in pJSDom
-				item?.pJS?.fn.vendors.destroypJS()
 
 	myUserInfo: ->
 		visualStatus = "online"
@@ -137,9 +138,8 @@ Template.main.events
 		chatContainer = $("#rocket-chat")
 		menu.toggle()
 
-Template.main.onRendered ->
 
-	$('html').addClass("noscroll").removeClass "scroll"
+Template.main.onRendered ->
 
 	# RTL Support - Need config option on the UI
 	if isRtl localStorage.getItem "userLanguage"
